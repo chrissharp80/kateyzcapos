@@ -20,36 +20,36 @@ capo_products_db = [
     {
         "id": "1",
         "name": "Steampunk Guitar Capo",
-        "description": "Handcrafted steampunk-style capo with unique V-shaped design for optimal string pressure and tone preservation.",
+        "description": "Close up of Steampunk. Stainless fretbar and screw, Brass frame, Copper saddle, thumbscrew and fretbar clasp. Handcrafted with unique V-shaped design for optimal string pressure and tone preservation.",
         "price": 85.00,
-        "image": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400",
+        "image": "https://lh5.googleusercontent.com/FHpVH8sJWdq2aZpPGADqFPNcfS9Oq9XdYFKSX_SYkRTO-4P-gxposDH36OqOR5ylqfgrmBpXvlbZvwpVY17LIVPCjBBTAxnp3BIdWhn6JtYzsrSYORA5oEctt__2E1wQ=w1280",
         "category": "Steampunk",
         "stock": 10
     },
     {
         "id": "2",
         "name": "Brass Guitar Capo",
-        "description": "Premium brass capo with precision machining and lifetime guarantee. Perfect for classical and acoustic guitars.",
+        "description": "Brass guitar with old style 1/4 thumbscrew. Premium brass capo with precision machining and lifetime guarantee. Perfect for classical and acoustic guitars.",
         "price": 75.00,
-        "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400",
+        "image": "https://lh6.googleusercontent.com/wNZ_BSfoVXsIizwcwRdeceoEndoYHxYjoqs1bdtvGq5d55qIwQR74-qZV_0JBdkcKq72h6e-FkB4UUfgO6e5KsMaLgWm0v7ISlusBTsj6DrrojEB=w1280",
         "category": "Brass",
         "stock": 15
     },
     {
         "id": "3",
-        "name": "Stainless Steel Capo",
-        "description": "Durable stainless steel construction with knurled thumbscrew for precise tension control.",
+        "name": "Stainless Steel Guitar Capo",
+        "description": "Stainless steel Guitar 2.0 capo with new style 1/4 thumbscrew. Durable stainless steel construction with knurled thumbscrew for precise tension control.",
         "price": 70.00,
-        "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400",
+        "image": "https://lh4.googleusercontent.com/CJbuH4wBcy14Dv41wNEDAfNCvDzRtS7jIbC8uWYwWleZJ7x6rpyGfCQIk-4FMYOMQUaBNxjgBlK4ZEWtuFCpdZvbBfFHsJrLzxowCpZlGFmq17QyfkLkmxyUNrUGQUrXsQ=w1280",
         "category": "Stainless Steel",
         "stock": 12
     },
     {
         "id": "4",
         "name": "Copper Banjo Capo",
-        "description": "Specially designed for banjos with custom sizing available. Beautiful copper finish with old-style thumbscrew.",
+        "description": "Copper banjo B with old style 3/8 thumbscrew. Specially designed for banjos with custom sizing available. Beautiful copper finish with old-style thumbscrew.",
         "price": 80.00,
-        "image": "https://images.unsplash.com/photo-1520637836862-4d197d17c90a?w=400",
+        "image": "https://lh6.googleusercontent.com/TBc8Wnwr3NaO7oDE5CQzqp_SKVoimX7pXcuThHX_vqx8BhsLH30s-nXREi0ehh3V4grA8GnFdDIoWDudeIKr7iJtXwxpLCbyXOMAjXalmUAkiB3t=w1280",
         "category": "Copper",
         "stock": 8
     }
