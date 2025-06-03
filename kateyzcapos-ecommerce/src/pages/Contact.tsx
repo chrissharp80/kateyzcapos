@@ -6,9 +6,9 @@ export function Contact() {
   return (
     <div className="py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-center mb-8">Contact Phil</h1>
+        <h1 className="text-4xl font-bold text-center mb-8">Contact Us</h1>
         <p className="text-xl text-gray-600 text-center mb-12">
-          Have questions about our capos or need custom sizing? Phil is here to help with your specific requirements.
+          Have questions about our capos or need custom sizing? We're here to help with your specific requirements.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -19,7 +19,7 @@ export function Contact() {
                 Email
               </CardTitle>
               <CardDescription>
-                Best way to reach Phil for custom orders and technical questions
+                Best way to reach us for custom orders and technical questions
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -62,7 +62,7 @@ export function Contact() {
           <CardContent>
             <p className="text-lg font-semibold">United States</p>
             <p className="text-sm text-gray-600 mt-2">
-              All capos are individually machined and assembled by Phil in his workshop
+              All capos are individually machined and assembled in our workshop
             </p>
           </CardContent>
         </Card>
@@ -70,7 +70,7 @@ export function Contact() {
         <div className="bg-blue-50 rounded-lg p-6">
           <h2 className="text-xl font-semibold mb-3">Custom Orders</h2>
           <p className="text-gray-700 mb-3">
-            Need a capo for an unusual neck width or have specific requirements? Phil specializes in custom work and 
+            Need a capo for an unusual neck width or have specific requirements? We specialize in custom work and 
             can accommodate most special requests.
           </p>
           <p className="text-gray-700">

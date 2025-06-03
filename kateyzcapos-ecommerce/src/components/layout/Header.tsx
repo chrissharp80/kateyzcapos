@@ -18,10 +18,11 @@ export function Header({ cartItemCount, onCartOpen }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
+            <img src="/favicon.png" alt="Kat Eyz Capos Logo" className="h-8 w-8 mr-3" />
             <Link to="/" className="text-2xl font-bold text-gray-900">
               Kat Eyz Capos
             </Link>
-            <p className="ml-4 text-gray-600 hidden sm:block">Handcrafted Guitar Capos by Phil</p>
+            <p className="ml-4 text-gray-600 hidden sm:block">Handcrafted Guitar and Banjo Capos</p>
           </div>
           
           <NavigationMenu>

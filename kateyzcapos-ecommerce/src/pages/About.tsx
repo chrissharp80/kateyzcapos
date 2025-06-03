@@ -56,7 +56,7 @@ export function About() {
         <div className="bg-gray-50 rounded-lg p-8">
           <h2 className="text-2xl font-bold mb-4">The Craftsman</h2>
           <p className="text-gray-700 leading-relaxed">
-            Phil has been crafting precision guitar capos for over a decade, combining traditional machining techniques 
+            These precision capos have been crafted for over a decade, combining traditional machining techniques 
             with modern materials to create instruments that enhance rather than compromise your guitar's natural voice. 
             Each capo is individually inspected and tested before shipping to ensure it meets our exacting standards.
           </p>
