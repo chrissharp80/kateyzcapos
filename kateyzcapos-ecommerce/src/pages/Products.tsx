@@ -15,6 +15,9 @@ interface ProductsProps {
 export function Products({ products, onAddToCart }: ProductsProps) {
   const [customizations, setCustomizations] = useState('')
 
+  console.log('🎯 Products component received:', products.length, 'products')
+  console.log('💰 First product price:', products[0]?.price)
+
   return (
     <div className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

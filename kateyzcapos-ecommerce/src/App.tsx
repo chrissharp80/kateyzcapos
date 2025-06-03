@@ -25,10 +25,14 @@ function App() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/products`)
+        console.log('🔍 Fetching products from API...')
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/products?t=${Date.now()}`)
         if (response.ok) {
           const data = await response.json()
+          console.log('✅ API returned:', data.length, 'products')
+          console.log('📦 First product:', data[0])
           setProducts(data)
+          console.log('🔄 setProducts called with', data.length, 'products')
         } else {
           console.error('Failed to fetch products')
         }
