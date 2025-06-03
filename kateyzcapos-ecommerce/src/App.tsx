@@ -22,47 +22,22 @@ function App() {
   const [customerEmail, setCustomerEmail] = useState('')
 
 
-  const capoProducts: Product[] = [
-    {
-      id: '1',
-      name: 'Steampunk Guitar Capo',
-      description: 'Close up of Steampunk. Stainless fretbar and screw, Brass frame, Copper saddle, thumbscrew and fretbar clasp. Handcrafted with unique V-shaped design for optimal string pressure and tone preservation.',
-      price: 85.00,
-      image: 'https://lh6.googleusercontent.com/7ztv6OURiA0bEBzLv7pj-6PSmPeeO9KHACHdZkSjMgGbBCYf8U3p3tXcHWUBSfP9o3gXy7OiihHV_Sig7W5jHsN-FFB6nF5_4kWsuZT9fZivgc0JkXnUMJSpKvZO6QQb=w1280',
-      category: 'Steampunk',
-      stock: 10
-    },
-    {
-      id: '2',
-      name: 'Brass Guitar Capo',
-      description: 'Brass guitar with old style 1/4 thumbscrew. Premium brass capo with precision machining and lifetime guarantee. Perfect for classical and acoustic guitars.',
-      price: 75.00,
-      image: 'https://lh4.googleusercontent.com/m5XH-mUoR3ZNU0iwXeH6UD2n9ebarI8j6NjetfdYrH6bcmDADYbip-Ny1XbruaptyeJIgXbbMJymQrMJFwPUTxs4DtXomMqNeim7Slj23xJ7SRCqPvUBqDJEgtKbAWRa-H44VHU2mRwN-c5v4GULKdxGd1ntzrKzGcXB=w1280',
-      category: 'Brass',
-      stock: 15
-    },
-    {
-      id: '3',
-      name: 'Stainless Steel Guitar Capo',
-      description: 'Stainless steel Guitar 2.0 capo with new style 1/4 thumbscrew. Durable stainless steel construction with knurled thumbscrew for precise tension control.',
-      price: 70.00,
-      image: 'https://lh6.googleusercontent.com/he6HeZyBTFLkrSzLqp4rIVyLKpbmZMU5_r5UUJ_RMnFut_rrtRkozC4mx_VDKU-avLAz87Zhr1yf4wInRELUl8lS-rxD7iUu4b9cpujA0ky0k4HUAoAXNn-Gw4yQt3MRuA=w1280',
-      category: 'Stainless Steel',
-      stock: 12
-    },
-    {
-      id: '4',
-      name: 'Copper Banjo Capo',
-      description: 'Copper banjo B with old style 3/8 thumbscrew. Specially designed for banjos with custom sizing available. Beautiful copper finish with old-style thumbscrew.',
-      price: 80.00,
-      image: 'https://lh3.googleusercontent.com/hCOnuvIJjA3MFuc4EjZjLVEnjR4thkkynTRZUhE2jXTxMneA63GeA_dHK-YqDOu8a9OX_LUg08aXU17ECSi5aQHZTDE9RXyMELgK_uzC6P7Dv-pa=w1280',
-      category: 'Copper',
-      stock: 8
-    }
-  ]
-
   useEffect(() => {
-    setProducts(capoProducts)
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/products`)
+        if (response.ok) {
+          const data = await response.json()
+          setProducts(data)
+        } else {
+          console.error('Failed to fetch products')
+        }
+      } catch (error) {
+        console.error('Error fetching products:', error)
+      }
+    }
+    
+    fetchProducts()
   }, [])
 
   const addToCart = (product: Product, customizations?: string) => {
