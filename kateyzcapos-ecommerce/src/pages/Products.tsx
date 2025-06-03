@@ -90,7 +90,7 @@ export function Products({ products, onAddToCart }: ProductsProps) {
                           📏 Precise measurements are critical for proper fit!
                         </p>
                         <p className="text-xs text-blue-600 mt-1">
-                          Phil machines each capo to your exact specifications. Inaccurate measurements may result in poor fit.
+                          Each capo is machined to your exact specifications. Inaccurate measurements may result in poor fit.
                         </p>
                       </div>
                     </div>

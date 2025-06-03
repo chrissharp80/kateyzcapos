@@ -21,7 +21,7 @@ export function Header({ cartItemCount, onCartOpen }: HeaderProps) {
             <Link to="/" className="text-2xl font-bold text-gray-900">
               Kat Eyz Capos
             </Link>
-            <p className="ml-4 text-gray-600 hidden sm:block">Handcrafted Guitar Capos by Phil</p>
+            <p className="ml-4 text-gray-600 hidden sm:block">Handcrafted Guitar and Banjo Capos</p>
           </div>
           
           <NavigationMenu>
