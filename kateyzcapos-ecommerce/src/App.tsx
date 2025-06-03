@@ -26,36 +26,36 @@ function App() {
     {
       id: '1',
       name: 'Steampunk Guitar Capo',
-      description: 'Handcrafted steampunk-style capo with unique V-shaped design for optimal string pressure and tone preservation.',
+      description: 'Close up of Steampunk. Stainless fretbar and screw, Brass frame, Copper saddle, thumbscrew and fretbar clasp. Handcrafted with unique V-shaped design for optimal string pressure and tone preservation.',
       price: 85.00,
-      image: 'https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400',
+      image: 'https://lh5.googleusercontent.com/FHpVH8sJWdq2aZpPGADqFPNcfS9Oq9XdYFKSX_SYkRTO-4P-gxposDH36OqOR5ylqfgrmBpXvlbZvwpVY17LIVPCjBBTAxnp3BIdWhn6JtYzsrSYORA5oEctt__2E1wQ=w1280',
       category: 'Steampunk',
       stock: 10
     },
     {
       id: '2',
       name: 'Brass Guitar Capo',
-      description: 'Premium brass capo with precision machining and lifetime guarantee. Perfect for classical and acoustic guitars.',
+      description: 'Brass guitar with old style 1/4 thumbscrew. Premium brass capo with precision machining and lifetime guarantee. Perfect for classical and acoustic guitars.',
       price: 75.00,
-      image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400',
+      image: 'https://lh6.googleusercontent.com/wNZ_BSfoVXsIizwcwRdeceoEndoYHxYjoqs1bdtvGq5d55qIwQR74-qZV_0JBdkcKq72h6e-FkB4UUfgO6e5KsMaLgWm0v7ISlusBTsj6DrrojEB=w1280',
       category: 'Brass',
       stock: 15
     },
     {
       id: '3',
-      name: 'Stainless Steel Capo',
-      description: 'Durable stainless steel construction with knurled thumbscrew for precise tension control.',
+      name: 'Stainless Steel Guitar Capo',
+      description: 'Stainless steel Guitar 2.0 capo with new style 1/4 thumbscrew. Durable stainless steel construction with knurled thumbscrew for precise tension control.',
       price: 70.00,
-      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400',
+      image: 'https://lh4.googleusercontent.com/CJbuH4wBcy14Dv41wNEDAfNCvDzRtS7jIbC8uWYwWleZJ7x6rpyGfCQIk-4FMYOMQUaBNxjgBlK4ZEWtuFCpdZvbBfFHsJrLzxowCpZlGFmq17QyfkLkmxyUNrUGQUrXsQ=w1280',
       category: 'Stainless Steel',
       stock: 12
     },
     {
       id: '4',
       name: 'Copper Banjo Capo',
-      description: 'Specially designed for banjos with custom sizing available. Beautiful copper finish with old-style thumbscrew.',
+      description: 'Copper banjo B with old style 3/8 thumbscrew. Specially designed for banjos with custom sizing available. Beautiful copper finish with old-style thumbscrew.',
       price: 80.00,
-      image: 'https://images.unsplash.com/photo-1520637836862-4d197d17c90a?w=400',
+      image: 'https://lh6.googleusercontent.com/TBc8Wnwr3NaO7oDE5CQzqp_SKVoimX7pXcuThHX_vqx8BhsLH30s-nXREi0ehh3V4grA8GnFdDIoWDudeIKr7iJtXwxpLCbyXOMAjXalmUAkiB3t=w1280',
       category: 'Copper',
       stock: 8
     }
@@ -104,7 +104,36 @@ function App() {
   }
 
   const handleCheckout = () => {
-    alert(`Order confirmed for ${customerEmail}! Total: $${getTotalPrice().toFixed(2)} (includes $7.00 shipping)`)
+    if (!customerEmail || cart.length === 0) return
+    
+    const orderId = `KEC-${Date.now()}`
+    const orderTotal = getTotalPrice()
+    
+    const orderSummary = cart.map(item => 
+      `${item.product.name} (Qty: ${item.quantity}) - $${(item.product.price * item.quantity).toFixed(2)}${item.customizations ? `\nCustom specs: ${item.customizations}` : ''}`
+    ).join('\n\n')
+    
+    alert(`✅ Order Request Submitted Successfully!
+
+Order ID: ${orderId}
+Total: $${orderTotal.toFixed(2)}
+
+Order Details:
+${orderSummary}
+
+Subtotal: $${(orderTotal - 7.00).toFixed(2)}
+Shipping: $7.00
+Total: $${orderTotal.toFixed(2)}
+
+📧 Confirmation sent to: ${customerEmail}
+
+Phil will contact you directly to:
+• Confirm custom measurements
+• Arrange payment (PayPal available for international orders)
+• Provide estimated completion time
+
+Thank you for choosing Kat Eyz Capos!`)
+    
     setCart([])
     setIsCheckoutOpen(false)
     setCustomerEmail('')
@@ -130,7 +159,7 @@ function App() {
         <Dialog open={isCartOpen} onOpenChange={setIsCartOpen}>
           <DialogContent className="max-w-2xl">
             <DialogHeader>
-              <DialogTitle>Shopping Cart</DialogTitle>
+              <DialogTitle>Shopping Cart ({cart.reduce((sum, item) => sum + item.quantity, 0)} items)</DialogTitle>
               <DialogDescription>
                 Review your items before checkout. Shipping is $7.00 USD for all orders.
               </DialogDescription>
@@ -150,7 +179,9 @@ function App() {
                       <h4 className="font-semibold">{item.product.name}</h4>
                       <p className="text-sm text-gray-600">${item.product.price.toFixed(2)} each</p>
                       {item.customizations && (
-                        <p className="text-xs text-blue-600 mt-1">Custom: {item.customizations}</p>
+                        <p className="text-xs text-blue-600 mt-1 bg-blue-50 p-2 rounded">
+                          <strong>Custom specs:</strong> {item.customizations}
+                        </p>
                       )}
                     </div>
                     <div className="flex items-center space-x-2">
@@ -183,9 +214,19 @@ function App() {
             </div>
             {cart.length > 0 && (
               <div className="border-t pt-4">
-                <div className="flex justify-between text-lg font-semibold mb-4">
-                  <span>Total (including $7.00 shipping):</span>
-                  <span>${getTotalPrice().toFixed(2)}</span>
+                <div className="space-y-2 mb-4">
+                  <div className="flex justify-between text-sm">
+                    <span>Subtotal:</span>
+                    <span>${(getTotalPrice() - 7.00).toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span>Shipping (flat rate):</span>
+                    <span>$7.00</span>
+                  </div>
+                  <div className="flex justify-between text-lg font-semibold border-t pt-2">
+                    <span>Total:</span>
+                    <span>${getTotalPrice().toFixed(2)}</span>
+                  </div>
                 </div>
                 <Button
                   className="w-full"
@@ -202,16 +243,24 @@ function App() {
         </Dialog>
 
         <Dialog open={isCheckoutOpen} onOpenChange={setIsCheckoutOpen}>
-          <DialogContent>
+          <DialogContent className="sm:max-w-lg">
             <DialogHeader>
               <DialogTitle>Checkout</DialogTitle>
               <DialogDescription>
-                Enter your email to complete your order. You'll receive order confirmation and tracking information.
+                Complete your order for custom handcrafted capos by Phil
               </DialogDescription>
             </DialogHeader>
             <div className="space-y-4">
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <h3 className="font-medium text-blue-800 mb-2">📧 Order Confirmation</h3>
+                <p className="text-sm text-blue-700">
+                  Your order details and payment instructions will be sent to your email. 
+                  Phil will contact you directly to confirm custom measurements and arrange payment.
+                </p>
+              </div>
+              
               <div>
-                <Label htmlFor="email">Email Address</Label>
+                <Label htmlFor="email">Email Address *</Label>
                 <Input
                   id="email"
                   type="email"
@@ -219,24 +268,50 @@ function App() {
                   value={customerEmail}
                   onChange={(e) => setCustomerEmail(e.target.value)}
                   className="mt-2"
+                  required
                 />
               </div>
+              
               <div className="bg-gray-50 p-4 rounded-lg">
-                <h4 className="font-semibold mb-2">Order Summary</h4>
-                {cart.map((item) => (
-                  <div key={item.product.id} className="flex justify-between text-sm mb-1">
-                    <span>{item.product.name} x{item.quantity}</span>
-                    <span>${(item.product.price * item.quantity).toFixed(2)}</span>
+                <h4 className="font-semibold mb-3">Order Summary</h4>
+                <div className="space-y-2 max-h-40 overflow-y-auto">
+                  {cart.map((item) => (
+                    <div key={item.product.id} className="bg-white p-3 rounded">
+                      <div className="flex justify-between items-start mb-1">
+                        <span className="font-medium">{item.product.name}</span>
+                        <span className="font-bold">${(item.product.price * item.quantity).toFixed(2)}</span>
+                      </div>
+                      <div className="text-sm text-gray-600">Quantity: {item.quantity}</div>
+                      {item.customizations && (
+                        <div className="text-xs text-gray-500 mt-1">
+                          <strong>Custom specs:</strong> {item.customizations}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="border-t pt-3 mt-3 space-y-1">
+                  <div className="flex justify-between text-sm">
+                    <span>Subtotal:</span>
+                    <span>${(getTotalPrice() - 7.00).toFixed(2)}</span>
                   </div>
-                ))}
-                <div className="flex justify-between text-sm mb-1">
-                  <span>Shipping</span>
-                  <span>$7.00</span>
+                  <div className="flex justify-between text-sm">
+                    <span>Shipping:</span>
+                    <span>$7.00</span>
+                  </div>
+                  <div className="flex justify-between font-bold text-lg border-t pt-2">
+                    <span>Total:</span>
+                    <span>${getTotalPrice().toFixed(2)}</span>
+                  </div>
                 </div>
-                <div className="flex justify-between font-semibold border-t pt-2">
-                  <span>Total</span>
-                  <span>${getTotalPrice().toFixed(2)}</span>
-                </div>
+              </div>
+              
+              <div className="bg-yellow-50 p-3 rounded-lg">
+                <p className="text-xs text-yellow-800">
+                  <strong>Payment:</strong> Phil accepts PayPal for international orders. 
+                  Domestic payment options will be provided via email.
+                </p>
               </div>
             </div>
             <DialogFooter>
@@ -245,7 +320,7 @@ function App() {
                 disabled={!customerEmail || cart.length === 0}
                 className="w-full"
               >
-                Complete Order
+                Submit Order Request
               </Button>
             </DialogFooter>
           </DialogContent>

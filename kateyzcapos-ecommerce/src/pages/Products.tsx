@@ -19,10 +19,27 @@ export function Products({ products, onAddToCart }: ProductsProps) {
     <div className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold text-center mb-4">Our Capo Collection</h1>
-        <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+        <p className="text-xl text-gray-600 text-center mb-8 max-w-3xl mx-auto">
           Each capo is individually machined with precision and care. Choose from our selection of premium materials 
           and add custom specifications for your instrument.
         </p>
+        
+        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-12 max-w-4xl mx-auto">
+          <div className="flex">
+            <div className="ml-3">
+              <h3 className="text-lg font-medium text-yellow-800">Important: Custom Sizing Required</h3>
+              <div className="mt-2 text-sm text-yellow-700">
+                <p className="mb-2">To properly size a capo you will need to provide the following 3 types of dimensions (as close as you are able to measure in mm/in):</p>
+                <ul className="list-disc list-inside space-y-1">
+                  <li><strong>Width of fretboard</strong> - Width of the fretboard at the highest capoed fret (side to side of fretboard)</li>
+                  <li><strong>Depth of neck</strong> - Thickness of neck at volute, first fret, and highest capoed fret (top of unfretted strings to back of neck)</li>
+                  <li><strong>Radius of fret board</strong> (if any)</li>
+                </ul>
+                <p className="mt-2 font-medium">Most capos are made at time of ordering due to custom sizing. This may affect completion time.</p>
+              </div>
+            </div>
+          </div>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
@@ -62,15 +79,20 @@ export function Products({ products, onAddToCart }: ProductsProps) {
                         <Label htmlFor="customizations">Custom Measurements &amp; Special Requests</Label>
                         <Textarea
                           id="customizations"
-                          placeholder="Enter fretboard width, neck depth, thumbscrew preferences, or any special requirements..."
+                          placeholder="Required measurements:&#10;• Fretboard width at highest capoed fret (mm/in)&#10;• Neck depth at volute, first fret, and highest capoed fret (mm/in)&#10;• Fret board radius (if any)&#10;• Thumbscrew preferences (1/4&quot; or 3/8&quot;, old or new style)&#10;• Any other special requirements..."
                           value={customizations}
                           onChange={(e) => setCustomizations(e.target.value)}
-                          className="mt-2"
+                          className="mt-2 h-32"
                         />
                       </div>
-                      <p className="text-sm text-gray-600">
-                        Most capos are made at time of ordering due to custom sizing. This may affect completion time.
-                      </p>
+                      <div className="bg-blue-50 p-3 rounded-md">
+                        <p className="text-sm text-blue-800 font-medium">
+                          📏 Precise measurements are critical for proper fit!
+                        </p>
+                        <p className="text-xs text-blue-600 mt-1">
+                          Phil machines each capo to your exact specifications. Inaccurate measurements may result in poor fit.
+                        </p>
+                      </div>
                     </div>
                     <DialogFooter>
                       <Button
