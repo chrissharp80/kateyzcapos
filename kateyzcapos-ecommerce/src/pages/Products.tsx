@@ -51,7 +51,7 @@ export function Products({ products, onAddToCart }: ProductsProps) {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform"
+                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform"
                 />
               </div>
               <CardHeader>
