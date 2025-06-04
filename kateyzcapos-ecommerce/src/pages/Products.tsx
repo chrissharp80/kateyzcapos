@@ -36,12 +36,12 @@ export function Products({ products, onAddToCart }: ProductsProps) {
   console.log('💰 First product price:', products[0]?.price)
 
   const metalStyleOptions = [
-    'Polished Brass $105.00 USD',
+    'Polished Brass $65.00 USD',
     'Polished Stainless Steel $105.00 USD', 
-    'Steampunk (Mixed Metals) $105.00 USD',
-    'Copper $105.00 USD',
-    'Gunmetal $105.00 USD',
-    'Antiqued Brass $105.00 USD'
+    'Steampunk (Mixed Metals) $90.00 USD',
+    'Copper $75.00 USD',
+    'Gunmetal $85.00 USD',
+    'Antiqued Brass $75.00 USD'
   ]
 
   const capoTypeOptions = [
