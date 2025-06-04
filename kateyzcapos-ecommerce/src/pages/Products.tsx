@@ -37,7 +37,7 @@ export function Products({ products, onAddToCart }: ProductsProps) {
 
   const metalStyleOptions = [
     'Polished Brass $65.00 USD',
-    'Polished Stainless Steel $105.00 USD', 
+    'Polished Stainless Steel $105.00 USD',
     'Steampunk (Mixed Metals) $90.00 USD',
     'Copper $75.00 USD',
     'Gunmetal $85.00 USD',
