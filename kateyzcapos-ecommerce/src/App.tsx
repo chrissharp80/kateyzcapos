@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Plus, Minus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -12,37 +12,14 @@ import { Products } from '@/pages/Products'
 import { About } from '@/pages/About'
 import { Contact } from '@/pages/Contact'
 import { Product, CartItem } from '@/types'
+import { products } from './data/products'
 import './App.css'
 
 function App() {
-  const [products, setProducts] = useState<Product[]>([])
   const [cart, setCart] = useState<CartItem[]>([])
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
   const [customerEmail, setCustomerEmail] = useState('')
-
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        console.log('🔍 Fetching products from API...')
-        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/products?t=${Date.now()}`)
-        if (response.ok) {
-          const data = await response.json()
-          console.log('✅ API returned:', data.length, 'products')
-          console.log('📦 First product:', data[0])
-          setProducts(data)
-          console.log('🔄 setProducts called with', data.length, 'products')
-        } else {
-          console.error('Failed to fetch products')
-        }
-      } catch (error) {
-        console.error('Error fetching products:', error)
-      }
-    }
-    
-    fetchProducts()
-  }, [])
 
   const addToCart = (product: Product, customizations?: string) => {
     setCart(prev => {
