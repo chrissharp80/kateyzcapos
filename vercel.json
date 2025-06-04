@@ -1,1 +1,6 @@
-
+{
+  "buildCommand": "cd kateyzcapos-ecommerce && npm run build",
+  "outputDirectory": "kateyzcapos-ecommerce/dist",
+  "installCommand": "cd kateyzcapos-ecommerce && npm install",
+  "framework": "vite"
+}
