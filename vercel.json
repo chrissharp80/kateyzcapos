@@ -1,6 +1,14 @@
 {
+  "version": 2,
+  "name": "kateyzcapos",
   "buildCommand": "cd kateyzcapos-ecommerce && npm run build",
   "outputDirectory": "kateyzcapos-ecommerce/dist",
   "installCommand": "cd kateyzcapos-ecommerce && npm install",
-  "framework": "vite"
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
